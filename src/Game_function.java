@@ -1,9 +1,9 @@
 import java.util.List;
 
-public class Game_function {
+    class Game_function {
 
-    String random_city(List<String> list, int a, int b){
-        int n = a + (int) (Math.random() * b);//Случайное число от "а" до "b"
+    String random_city(List<String> list, int b){
+        int n = (int) (Math.random() * b);//Случайное число от "а" до "b"
         return list.get(n);
     }
 

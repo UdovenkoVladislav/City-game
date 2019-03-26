@@ -21,7 +21,7 @@ public class Thread1 extends Thread{
                 int i = 0;
                 while (i < list.size()){
                     if (o == 1) {
-                        city = g_f.random_city(list,0, list.size());
+                        city = g_f.random_city(list, list.size());
                         System.out.printf("%s: " + city + "\n", Thread.currentThread().getName());//Написать случайный город из списка
                         Character cc = g_f.getLastChar(city);
                         System.out.printf("%s: Тебе на " + cc + "\n", Thread.currentThread().getName());
