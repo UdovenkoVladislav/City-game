@@ -17,12 +17,13 @@ public class Thread1 extends Thread{
         public void run() {
             System.out.printf("%s started... \n", Thread.currentThread().getName());
             try{
+                Game_function g_f = new Game_function();
                 int i = 0;
                 while (i < list.size()){
                     if (o == 1) {
-                        city = Game_function.random_city(list,0, list.size());
+                        city = g_f.random_city(list,0, list.size());
                         System.out.printf("%s: " + city + "\n", Thread.currentThread().getName());//Написать случайный город из списка
-                        Character cc = Game_function.getLastChar(city);
+                        Character cc = g_f.getLastChar(city);
                         System.out.printf("%s: Тебе на " + cc + "\n", Thread.currentThread().getName());
                         list.remove(city);
                         city = exchanger.exchange(city);
@@ -36,8 +37,8 @@ public class Thread1 extends Thread{
                                 break;
                             } else {
                                 list.remove(city);
-                                Character c = Game_function.getLastChar(city);
-                                city = Game_function.find_city(list, c);
+                                Character c = g_f.getLastChar(city);
+                                city = g_f.find_city(list, c);
                                 if (city.equals("Не знаю")) {
                                     System.out.printf("%s: " + city + "\n", Thread.currentThread().getName());
                                     System.out.printf("%s finished... \n", Thread.currentThread().getName());
@@ -45,7 +46,7 @@ public class Thread1 extends Thread{
                                     break;
                                 } else {
                                     System.out.printf("%s: " + city + "\n", Thread.currentThread().getName());
-                                    Character c1 = Game_function.getLastChar(city);
+                                    Character c1 = g_f.getLastChar(city);
                                     System.out.printf("%s: Тебе на " + c1 + "\n", Thread.currentThread().getName());
                                     city = exchanger.exchange(city);
                                 }
