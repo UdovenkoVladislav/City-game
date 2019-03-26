@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.concurrent.Exchanger;
 
 public class Main {
 
@@ -10,6 +11,13 @@ public class Main {
         try{
             Path path = Paths.get("E:\\Политех\\ООП\\ksrka\\src\\cities.txt");//Путь к списку городов
             List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);//List, созданный из списка городов
+
+            Exchanger<String> ex = new Exchanger<String>();//Переменная между потоками(город)
+            Thread gamer1 = new Thread1("Игрок №1", lines, ex, 1);
+            Thread gamer2 = new Thread1("Игрок №2", lines, ex, 2);
+            gamer1.start();
+            gamer2.start();
+            System.out.println("Игра окончена!");
         }catch (Exception e){
             System.out.println(e.toString());
         }
