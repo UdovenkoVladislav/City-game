@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="554.0">com</node>
+    <node x="0.0" y="479.0">netscape</node>
+    <node x="173.0" y="479.0">oracle</node>
+    <node x="442.0" y="554.0">org</node>
+    <node x="297.0" y="554.0">sun</node>
+    <node x="399.0" y="0.0">META-INF</node>
+    <node x="0.0" y="629.0">jdk</node>
+    <node x="37.0" y="0.0">Game_function</node>
+    <node x="150.0" y="554.0">java</node>
+    <node x="487.0" y="479.0">javax</node>
+    <node x="331.0" y="479.0">javafx</node>
+    <node x="91.5" y="382.0">Main</node>
+    <node x="0.0" y="168.0">Thread1</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Thread1" target="Game_function">
+      <point x="-88.5" y="-82.0" />
+      <point x="88.5" y="143.0" />
+      <point x="107.0" y="143.0" />
+      <point x="-70.0" y="59.0" />
+    </edge>
+    <edge source="Main" target="Thread1">
+      <point x="0.0" y="-26.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9189985272459499" x="297.3044871794872" y="249.5" />
+  <SelectedNodes>
+    <node>Thread1</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
