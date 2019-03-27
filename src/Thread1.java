@@ -18,8 +18,7 @@ public class Thread1 extends Thread{
             System.out.printf("%s started... \n", Thread.currentThread().getName());
             try{
                 Game_function g_f = new Game_function();
-                int i = 0;
-                while (i < list.size()){
+                while (true){
                     if (o == 1) {
                         city = g_f.random_city(list, list.size());
                         System.out.printf("%s: " + city + "\n", Thread.currentThread().getName());//Написать случайный город из списка
@@ -32,7 +31,7 @@ public class Thread1 extends Thread{
                             city = exchanger.exchange(city);
                             if (city.equals("Я победил!!!")) {
                                 System.out.printf("%s: " + city + "\n", Thread.currentThread().getName());
-                                System.out.printf("%s finished... \n", Thread.currentThread().getName());
+                                //System.out.printf("%s finished... \n", Thread.currentThread().getName());
                                 city = exchanger.exchange("Я победил!!!");
                                 break;
                             } else {
@@ -41,7 +40,7 @@ public class Thread1 extends Thread{
                                 city = g_f.find_city(list, c);
                                 if (city.equals("Не знаю")) {
                                     System.out.printf("%s: " + city + "\n", Thread.currentThread().getName());
-                                    System.out.printf("%s finished... \n", Thread.currentThread().getName());
+                                    //System.out.printf("%s finished... \n", Thread.currentThread().getName());
                                     city = exchanger.exchange("Я победил!!!");
                                     break;
                                 } else {
@@ -52,8 +51,7 @@ public class Thread1 extends Thread{
                                 }
                             }
                     }
-                    Thread.sleep(100);
-                    i++;
+                    Thread.sleep(10);
                 }
                 System.out.printf("%s finished... \n", Thread.currentThread().getName());
             } catch(Exception r){

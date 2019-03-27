@@ -17,6 +17,8 @@ public class Main {
             Thread gamer2 = new Thread1("Игрок №2", lines, ex, 2);
             gamer1.start();
             gamer2.start();
+            gamer1.join();
+            gamer2.join();
             System.out.println("Игра окончена!");
         }catch (Exception e){
             System.out.println(e.toString());
