@@ -1,21 +1,32 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Exchanger;
 
 public class Thread1 extends Thread{
 
-        private List<String> list;
+        private List<String> list = new ArrayList<String>();
         private Exchanger<String> exchanger;
         private String city;
         private int o = 0;
+        private int p = 0;
 
-        Thread1(String name, List<String> lines, Exchanger<String> ex, int or_1_or_2){
+        Thread1(String name, List<String> lines, Exchanger<String> ex, int or_1_or_2, int percentage_ratio){
             super(name);
-            this.list = lines;
             this.exchanger = ex;
             this.o = or_1_or_2;
+            this.list = lines;
+            this.p = percentage_ratio;
         }
         public void run() {
             System.out.printf("%s started... \n", Thread.currentThread().getName());
+
+            double ps = (double)(p*list.size())/100;
+            System.out.printf("%s: " + ps + "\n", Thread.currentThread().getName());
+            for(int i = 0; i < (list.size() - (int)ps); i++) {
+                list.remove(list.get(i));
+            }
+            System.out.printf("%s: " + list.size() + "\n", Thread.currentThread().getName());
+
             try{
                 Game_function g_f = new Game_function();
                 while (true){
@@ -51,7 +62,7 @@ public class Thread1 extends Thread{
                                 }
                             }
                     }
-                    Thread.sleep(10);
+                    //Thread.sleep(10);
                 }
                 System.out.printf("%s finished... \n", Thread.currentThread().getName());
             } catch(Exception r){
