@@ -23,10 +23,24 @@ import java.util.List;
         return city.toUpperCase().charAt(pos);
     }
 
-    String find_city(List<String> list, Character c){
-        for(String city: list){
-            if (city.charAt(0) == c){
-                return city;
+    String find_city(List<String> list, Character c, String level){
+
+        if (level.equals("smart")) {
+            for(String city: list){
+                if (city.charAt(0) == c){
+
+                    for(String city1: list){
+                        if (city1.charAt(0) == city.charAt(city.length())){
+                            return city;
+                        }
+                    }
+                }
+            }
+        } else {
+            for(String city: list){
+                if (city.charAt(0) == c){
+                    return city;
+                }
             }
         }
         return "Не знаю";
