@@ -9,6 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
         try{
+            char[] z = {1059,1076,1086,1074,1077,1085,1082,1086,32,1055,1069,45,49,55,49};
+            for(char c: z){
+                System.out.print(c);
+            } System.out.print("\n");
             Path path = Paths.get("E:\\Политех\\ООП\\ksrka\\src\\cities.txt");//Путь к списку городов
             List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);//List, созданный из списка городов
 
