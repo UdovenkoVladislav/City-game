@@ -9,13 +9,15 @@ public class Thread1 extends Thread{
         private String city;
         private int o = 0;
         private int p = 0;
+        private String lev;
 
-        Thread1(String name, List<String> lines, Exchanger<String> ex, int or_1_or_2, int percentage_ratio){
+        Thread1(String name, List<String> lines, Exchanger<String> ex, int or_1_or_2, int percentage_ratio, String level){
             super(name);
             this.exchanger = ex;
             this.o = or_1_or_2;
             this.list = lines;
             this.p = percentage_ratio;
+            this.lev = level;
         }
         public void run() {
             System.out.printf("%s started... \n", Thread.currentThread().getName());
@@ -48,7 +50,7 @@ public class Thread1 extends Thread{
                             } else {
                                 list.remove(city);
                                 Character c = g_f.getLastChar(city);
-                                city = g_f.find_city(list, c);
+                                city = g_f.find_city(list, c, lev);
                                 if (city.equals("Не знаю")) {
                                     System.out.printf("%s: " + city + "\n", Thread.currentThread().getName());
                                     //System.out.printf("%s finished... \n", Thread.currentThread().getName());

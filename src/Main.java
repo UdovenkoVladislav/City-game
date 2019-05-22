@@ -17,8 +17,8 @@ public class Main {
             List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);//List, созданный из списка городов
 
             Exchanger<String> ex = new Exchanger<String>();//Переменная между потоками(город)
-            Thread gamer1 = new Thread1("Игрок №1", lines, ex, 1, 70);
-            Thread gamer2 = new Thread1("Игрок №2", lines, ex, 2, 100);
+            Thread gamer1 = new Thread1("Игрок №1", lines, ex, 1, 100, "smart");
+            Thread gamer2 = new Thread1("Игрок №2", lines, ex, 2, 100, "gfg");
             gamer1.start();
             gamer2.start();
             gamer1.join();
