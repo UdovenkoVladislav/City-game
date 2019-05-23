@@ -28,13 +28,14 @@ import java.util.ArrayList;
         return city.toUpperCase().charAt(pos);
     }
 
-    List<Character> getFirstCharMin(List<List<String>> s) {
+    private List<Character> getFirstCharMin(List<List<String>> s) {
         List<Character> b = new ArrayList<Character>();
         List<Integer> a = new ArrayList<Integer>();
         for (List<String> d: s) {
             a.add(d.size());
         }
         Collections.sort(a);
+        //System.out.println(a);
         for (Integer i: a) {
             for (List<String> d : s) {
                 if (d.size() == i) {
@@ -42,37 +43,54 @@ import java.util.ArrayList;
                 }
             }
         }
+        //System.out.println(b);
         return b;
     }
 
     String find_city(List<String> list, Character c, String level) {
+        Game_function g_f = new Game_function();
+        //System.out.println(level + "***");
+        //System.out.println(c + "***");
         if (level.equals("smart")) {
             String al = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+            //System.out.println(al + "***");
             List<List<String>> ls = new ArrayList<List<String>>();
             for(Character b: al.toCharArray()) {
+                //System.out.println(b + "***");
                 List<String> array = new ArrayList<String>();
                 for(String city: list) {
-                    if (getFirstChar(city) == b) {
+                    if (city.charAt(0) == b) {
+                        //System.out.println(city + "***");
                         array.add(city);
                     }
-                } if (array.size() != 0) {
+                }
+                if (array.size() != 0) {
+                    //System.out.println(array.size() + "***");
                     ls.add(array);
                 }
             }
             for (int i = 0; i < ls.size(); i++) {
                 for (String city : list) {
-                    if (getFirstChar(city) == c) {
-                        if (getLastChar(city) == getFirstCharMin(ls).get(i)) {
+                    if (city.charAt(0) == c) {
+                        //System.out.println(city);
+                        if (g_f.getLastChar(city).equals(g_f.getFirstCharMin(ls).get(i))) {
+                            List<Integer> a = new ArrayList<Integer>();
+                            for (List<String> d: ls) {
+                                a.add(d.size());
+                            }
+                            Collections.sort(a);
+                            //System.out.println(a);
+                            //System.out.println(g_f.getFirstCharMin(ls));
                             return city;
                         }
                     }
                 }
             }
-            System.out.println(3);
+            //System.out.println(3);
         } else {
-            System.out.println(33);
+            //System.out.println(33);
             for(String city: list){
-                if (getFirstChar(city) == c){
+                if (city.charAt(0) == c){
                     return city;
                 }
             }
