@@ -1,3 +1,5 @@
+package packag;
+
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,7 +15,7 @@ public class Main {
             for(char c: z){
                 System.out.print(c);
             } System.out.print("\n");
-            Path path = Paths.get("E:\\Политех\\ООП\\ksrka\\src\\cities.txt");//Путь к списку городов
+            Path path = Paths.get("cities.txt");//Путь к списку городов
             List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);//List, созданный из списка городов
 
             Exchanger<String> ex = new Exchanger<String>();//Переменная между потоками(город)
