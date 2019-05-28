@@ -1,4 +1,3 @@
-package packag;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +24,11 @@ public class Thread1 extends Thread{
             System.out.printf("%s started... \n", Thread.currentThread().getName());
 
             double ps = (double)(p*list.size())/100;
-            System.out.printf("%s: " + ps + "\n", Thread.currentThread().getName());
+            //System.out.printf("%s: " + ps + "\n", Thread.currentThread().getName());
             for(int i = 0; i < (list.size() - (int)ps); i++) {
                 list.remove(list.get(i));
             }
-            System.out.printf("%s: " + list.size() + "\n", Thread.currentThread().getName());
+            //System.out.printf("%s: " + list.size() + "\n", Thread.currentThread().getName());
 
             try{
                 Game_function g_f = new Game_function();
